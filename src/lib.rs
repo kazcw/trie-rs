@@ -46,18 +46,18 @@
 //!
 //! let mut t = Trie::new();
 //!
-//! t.insert("this".chars(), 1);
-//! t.insert("trie".chars(), 2);
-//! t.insert("contains".chars(), 3);
-//! t.insert("a".chars(), 4);
-//! t.insert("number".chars(), 5);
-//! t.insert("of".chars(), 6);
-//! t.insert("words".chars(), 7);
+//! t.insert("this".bytes(), 1);
+//! t.insert("trie".bytes(), 2);
+//! t.insert("contains".bytes(), 3);
+//! t.insert("a".bytes(), 4);
+//! t.insert("number".bytes(), 5);
+//! t.insert("of".bytes(), 6);
+//! t.insert("words".bytes(), 7);
 //!
-//! assert_eq!(t.contains_key("number".chars()), true);
-//! assert_eq!(t.contains_key("not_existing_key".chars()), false);
-//! assert_eq!(t.get_value("words".chars()), Some(7));
-//! assert_eq!(t.get_value("none".chars()), None);
+//! assert_eq!(t.contains_key("number".bytes()), true);
+//! assert_eq!(t.contains_key("not_existing_key".bytes()), false);
+//! assert_eq!(t.get_value("words".bytes()), Some(7));
+//! assert_eq!(t.get_value("none".bytes()), None);
 //! ```
 
 mod trie_node;
@@ -111,7 +111,7 @@ impl<T: Eq + Ord + Clone, U: Clone> Trie<T, U> {
     /// use gtrie::Trie;
     ///
     /// let mut t = Trie::new();
-    /// let data = "test".chars();
+    /// let data = "test".bytes();
     ///
     /// t.insert(data, 42);
     /// assert_eq!(t.is_empty(), false);
@@ -155,7 +155,7 @@ impl<T: Eq + Ord + Clone, U: Clone> Trie<T, U> {
     /// use gtrie::Trie;
     ///
     /// let mut t = Trie::new();
-    /// let data = "test".chars();
+    /// let data = "test".bytes();
     ///
     /// t.insert(data, String::from("test"));
     /// t.clear();
@@ -174,8 +174,8 @@ impl<T: Eq + Ord + Clone, U: Clone> Trie<T, U> {
     /// use gtrie::Trie;
     ///
     /// let mut t = Trie::new();
-    /// let data = "test".chars();
-    /// let another_data = "notintest".chars();
+    /// let data = "test".bytes();
+    /// let another_data = "notintest".bytes();
     ///
     /// t.insert(data.clone(), 42);
     ///
@@ -208,8 +208,8 @@ impl<T: Eq + Ord + Clone, U: Clone> Trie<T, U> {
     /// use gtrie::Trie;
     ///
     /// let mut t = Trie::new();
-    /// let data = "test".chars();
-    /// let another_data = "notintest".chars();
+    /// let data = "test".bytes();
+    /// let another_data = "notintest".bytes();
     ///
     /// t.insert(data.clone(), 42);
     ///
@@ -232,8 +232,8 @@ impl<T: Eq + Ord + Clone, U: Clone> Trie<T, U> {
     /// use gtrie::Trie;
     ///
     /// let mut t = Trie::new();
-    /// let data = "test".chars();
-    /// let another_data = "notintest".chars();
+    /// let data = "test".bytes();
+    /// let another_data = "notintest".bytes();
     ///
     /// t.insert(data.clone(), 42);
     ///

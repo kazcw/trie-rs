@@ -25,10 +25,10 @@ fn generate_keys() -> Vec<String> {
 fn trie_match(b: &mut Bencher) {
     let mut t = gtrie::Trie::new();
 
-    t.insert("test".chars(), String::from("test"));
+    t.insert("test".bytes(), String::from("test"));
 
     b.iter(|| {
-        assert_eq!(t.contains_key("test".chars()), true);
+        assert_eq!(t.contains_key("test".bytes()), true);
     })
 }
 
@@ -36,10 +36,10 @@ fn trie_match(b: &mut Bencher) {
 fn trie_mismatch(b: &mut Bencher) {
     let mut t = gtrie::Trie::new();
 
-    t.insert("test".chars(), String::from("test"));
+    t.insert("test".bytes(), String::from("test"));
 
     b.iter(|| {
-        assert_eq!(t.contains_key("tst".chars()), false);
+        assert_eq!(t.contains_key("tst".bytes()), false);
     })
 }
 
@@ -74,12 +74,12 @@ fn trie_massive_match(b: &mut Bencher) {
     let keys = generate_keys();
 
     for key in &keys {
-        t.insert(key.chars(), key.clone());
+        t.insert(key.bytes(), key.clone());
     }
 
     b.iter(|| {
         for key in &keys {
-            assert_eq!(t.contains_key(key.chars()), true);
+            assert_eq!(t.contains_key(key.bytes()), true);
         }
     })
 }
@@ -91,12 +91,12 @@ fn trie_massive_mismatch_on_0(b: &mut Bencher) {
     let keys = generate_keys();
 
     for key in &keys {
-        t.insert(key.chars(), key.clone());
+        t.insert(key.bytes(), key.clone());
     }
 
     b.iter(|| {
         for _ in 0..keys.len() {
-            assert_eq!(t.contains_key(mismatching.chars()), false);
+            assert_eq!(t.contains_key(mismatching.bytes()), false);
         }
     })
 }
@@ -108,12 +108,12 @@ fn trie_massive_mismatch_on_1(b: &mut Bencher) {
     let keys = generate_keys();
 
     for key in &keys {
-        t.insert(key.chars(), key.clone());
+        t.insert(key.bytes(), key.clone());
     }
 
     b.iter(|| {
         for _ in 0..keys.len() {
-            assert_eq!(t.contains_key(mismatching.chars()), false);
+            assert_eq!(t.contains_key(mismatching.bytes()), false);
         }
     })
 }
@@ -125,12 +125,12 @@ fn trie_massive_mismatch_on_2(b: &mut Bencher) {
     let keys = generate_keys();
 
     for key in &keys {
-        t.insert(key.chars(), key.clone());
+        t.insert(key.bytes(), key.clone());
     }
 
     b.iter(|| {
         for _ in 0..keys.len() {
-            assert_eq!(t.contains_key(mismatching.chars()), false);
+            assert_eq!(t.contains_key(mismatching.bytes()), false);
         }
     })
 }
@@ -142,12 +142,12 @@ fn trie_massive_mismatch_on_3(b: &mut Bencher) {
     let keys = generate_keys();
 
     for key in &keys {
-        t.insert(key.chars(), key.clone());
+        t.insert(key.bytes(), key.clone());
     }
 
     b.iter(|| {
         for _ in 0..keys.len() {
-            assert_eq!(t.contains_key(mismatching.chars()), false);
+            assert_eq!(t.contains_key(mismatching.bytes()), false);
         }
     })
 }

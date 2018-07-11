@@ -12,7 +12,7 @@ mod tests {
     #[test]
     fn add_word_to_trie() {
         let mut t = Trie::new();
-        t.insert("test".chars(), String::from("test"));
+        t.insert("test".bytes(), String::from("test"));
 
         assert_eq!(t.is_empty(), false);
     }
@@ -20,9 +20,9 @@ mod tests {
     #[test]
     fn contains_key_test() {
         let mut t = Trie::new();
-        let test = "test".chars();
-        let tes = "tes".chars();
-        let notintest = "notintest".chars();
+        let test = "test".bytes();
+        let tes = "tes".bytes();
+        let notintest = "notintest".bytes();
 
         t.insert(test.clone(), String::from("test"));
 
@@ -35,9 +35,9 @@ mod tests {
     #[test]
     fn contains_key_sub_path_test() {
         let mut t = Trie::new();
-        let test = "test".chars();
-        let tes = "tes".chars();
-        let notintest = "notintest".chars();
+        let test = "test".bytes();
+        let tes = "tes".bytes();
+        let notintest = "notintest".bytes();
 
         t.insert(test.clone(), String::from("test"));
         t.insert(tes.clone(), String::from("tes"));
@@ -51,7 +51,7 @@ mod tests {
     #[test]
     fn clear_test() {
         let mut t = Trie::new();
-        let data = "test".chars();
+        let data = "test".bytes();
 
         t.insert(data.clone(), String::from("test"));
 
